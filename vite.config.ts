@@ -4,24 +4,11 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [svelte()],
+  base: './', // CRITICAL: Makes assets load correctly on GitHub Pages
   root: path.resolve(__dirname, 'client'),
   build: {
     outDir: path.resolve(__dirname, 'dist'),
     emptyOutDir: true,
   },
-  server: {
-    port: 0,
-    strictPort: false,
-    host: true
-  },
-  preview: {
-    port: 0,
-    strictPort: false,
-    host: true
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './client/src'),
-    },
-  },
+  server: { port: 0 },
 });
